@@ -4,13 +4,13 @@ from ursina.prefabs.first_person_controller import FirstPersonController
 from perlin_noise import PerlinNoise
 
 app = Ursina()
-log_texture = load_texture('Minecraft-in-Python-main/assets/log_texture.png')
-grass_texture = load_texture('Minecraft-in-Python-main/assets/grass_block.png')
-stone_texture = load_texture('Minecraft-in-Python-main/assets/stone_block.png')
-brick_texture = load_texture('Minecraft-in-Python-main/assets/brick_block.png')
-dirt_texture = load_texture('Minecraft-in-Python-main/assets/dirt_block.png')
-sky_texture = load_texture('Minecraft-in-Python-main/assets/skybox.png')
-arm_texture = load_texture('Minecraft-in-Python-main/assets/arm_texture.png')
+log_texture = load_texture('assets/log_texture.png')
+grass_texture = load_texture('assets/grass_block.png')
+stone_texture = load_texture('assets/stone_block.png')
+brick_texture = load_texture('assets/brick_block.png')
+dirt_texture = load_texture('assets/dirt_block.png')
+sky_texture = load_texture('assets/skybox.png')
+arm_texture = load_texture('assets/arm_texture.png')
 block_pick = 1
 noise = PerlinNoise(octaves=1, seed=randint(1,18446744073709551616))
 xpix, ypix = 100, 100
