@@ -11,11 +11,11 @@ This is a project of making Minecraft with python (with some unique twists).
 4.Not planned
 
 
-## Features
+## to-do
 
 - Light/dark mode toggle
 - Live previews
 - Fullscreen mode
-- Cross platform
+- Procedural generation 
 
   
