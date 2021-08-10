@@ -4,13 +4,13 @@ from ursina.prefabs.first_person_controller import FirstPersonController
 from perlin_noise import PerlinNoise
 
 app = Ursina()
-log_texture = load_texture('assets/log_texture.png')
-grass_texture = load_texture('assets/grass_block.png')
-stone_texture = load_texture('assets/stone_block.png')
-brick_texture = load_texture('assets/brick_block.png')
-dirt_texture = load_texture('assets/dirt_block.png')
-sky_texture = load_texture('assets/skybox.png')
-arm_texture = load_texture('assets/arm_texture.png')
+log_texture = load_texture('Minecraft-in-Python-main/assets/log_texture.png')
+grass_texture = load_texture('Minecraft-in-Python-main/assets/grass_block.png')
+stone_texture = load_texture('Minecraft-in-Python-main/assets/stone_block.png')
+brick_texture = load_texture('Minecraft-in-Python-main/assets/brick_block.png')
+dirt_texture = load_texture('Minecraft-in-Python-main/assets/dirt_block.png')
+sky_texture = load_texture('Minecraft-in-Python-main/assets/skybox.png')
+arm_texture = load_texture('Minecraft-in-Python-main/assets/arm_texture.png')
 block_pick = 1
 noise = PerlinNoise(octaves=1, seed=randint(1,18446744073709551616))
 xpix, ypix = 100, 100
@@ -18,9 +18,9 @@ pic = [[noise([i/xpix, j/ypix]) for j in range(xpix)] for i in range(ypix)]
 
 window.fps_counter.enabled = True
 window.exit_button.visible = False
-window.fullscreen = False
-
+window.fullscreen = True
 def update():
+
     global block_pick
     if held_keys['left mouse'] or held_keys['right mouse']:
         hand.active()
@@ -61,7 +61,10 @@ class Voxel(Button):
             if key == 'right mouse down':
                 destroy(self)
 
-
+            if held_keys['escape']:
+                window.fullscreen = False
+            if held_keys['f']:
+                window.fullscreen = True
 
 class Hand(Entity):
     def __init__(self):
@@ -105,16 +108,6 @@ for z in range(20):
                 y = noise([x / 8, z / 8])
                 y = math.floor(y * 7.5)
                 voxel = Voxel(texture=stone_texture ,position=(x ,(-4) + y ,z))
-for z in range(20):
-    for x in range(20):
-                y = noise([x / 8, z / 8])
-                y = math.floor(y * 7.5)
-                voxel = Voxel(texture=stone_texture ,position=(x ,(-5) + y ,z))
-for z in range(20):
-    for x in range(20):
-                y = noise([x / 8, z / 8])
-                y = math.floor(y * 7.5)
-                voxel = Voxel(texture=stone_texture ,position=(x ,(-6) + y ,z))
 
 player = FirstPersonController()
 player.position = Vec3(5, 30, 5)
