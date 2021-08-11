@@ -2,7 +2,7 @@ from random import randint
 from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from perlin_noise import PerlinNoise
-from voxel import *
+from classes import *
 
 app = Ursina()
 log_texture = load_texture('assets/log_texture.png')
