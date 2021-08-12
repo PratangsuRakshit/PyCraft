@@ -13,7 +13,7 @@ dirt_texture = load_texture('assets/dirt_block.png')
 sky_texture = load_texture('assets/skybox.png')
 arm_texture = load_texture('assets/arm_texture.png')
 leaf_texture = load_texture('assets/leaf_block.png')
-a = Audio('Minecraft-in-Python-main/assets/Minecraft Footsteps.mp4') #pragatsu change the path here
+a = Audio('Minecraft-in-Python-main/assets/Minecraft Footsteps.mp4') #pragatsu change the path here<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 block_pick = 1
 noise = PerlinNoise(octaves=1, seed=randint(1,18446744073709551616))
 xpix, ypix = 100, 100
