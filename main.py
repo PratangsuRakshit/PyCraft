@@ -3,7 +3,7 @@ from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from perlin_noise import PerlinNoise
 from classes import *
-# Please NOTE : inv1 = hotbar inventory and inv2 = inventory overall 
+# Please NOTE : inv1 = hotbar inventory and inv2 = inventory overall <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 class BG(Entity):
     def __init__(self):
         super().__init__(
