@@ -13,6 +13,7 @@ dirt_texture = load_texture('assets/dirt_block.png')
 sky_texture = load_texture('assets/skybox.png')
 arm_texture = load_texture('assets/arm_texture.png')
 leaf_texture = load_texture('assets/leaf_block.png')
+a = Audio('Minecraft-in-Python-main/assets/Minecraft Footsteps.mp4') #pragatsu change the path here
 block_pick = 1
 noise = PerlinNoise(octaves=1, seed=randint(1,18446744073709551616))
 xpix, ypix = 100, 100
@@ -34,7 +35,12 @@ def update():
     if held_keys['4']: block_pick = 4
     if held_keys['5']: block_pick = 5
     if held_keys['6']: block_pick = 6
-
+def input(key):
+    if held_keys['a'] or held_keys['w'] or held_keys['s'] or held_keys['d']:
+        a.play(start=0)
+    else:
+        a.stop()
+        
 for z in range(20):
     for x in range(20):
                 y = noise([x/8,z/8])
