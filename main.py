@@ -121,10 +121,10 @@ class Voxel(Button):
                 if key == 'right mouse down':
                     destroy(self)
 
-            if held_keys['escape']:
-                window.fullscreen = False
+            #if held_keys['escape']:
+            #    window.fullscreen = False
             if held_keys['f']:
-                window.fullscreen = True
+                window.fullscreen = not window.fullscreen
 
 class Hand(Entity):
     def __init__(self):
