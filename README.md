@@ -20,9 +20,9 @@ This is our attempt to create a game like minecraft in ursina engine.
 
 - Add villages
 - Optamizing
-- Chunk mesh
+- Chunk mesh (PRIORITY)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------------IMPORTANT--------------------------- pls do fast
 - Auto genarated tree's leaves
-- Add guns
+- Add guns(maybe ?)
 - Add daylight cycle
 - Inventory
 - Block cound
@@ -30,5 +30,6 @@ This is our attempt to create a game like minecraft in ursina engine.
 - Commands
 - Mobs
 - (UnPlanned)
-- sfx
+- SFX
+- launch in google play store/steam/Microsoft store (before launching discuss with saket abt COPYRIGHT and LEGAL LICENSES)
   
