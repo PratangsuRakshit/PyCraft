@@ -20,7 +20,7 @@ This is our attempt to create a game like minecraft in ursina engine.
 
 - Add villages
 - Optamizing
-- Chunk mesh (PRIORITY)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------------IMPORTANT--------------------------- pls do fast
+- Chunk mesh (PRIORITY)<<<<<<<<<<<<<<<<------------IMPORTANT--------------------------- pls do fast
 - Auto genarated tree's leaves
 - Add guns(maybe ?)
 - Add daylight cycle
