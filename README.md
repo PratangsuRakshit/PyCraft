@@ -32,4 +32,4 @@ This is our attempt to create a game like minecraft in ursina engine.
 - (UnPlanned)
 - SFX
 - launch in google play store/steam/Microsoft store (before launching discuss with saket abt COPYRIGHT and LEGAL LICENSES)
-  
+- Shaders (rtx type if possible refer this video > https://www.youtube.com/watch?v=1bb7wKIHpgY )
