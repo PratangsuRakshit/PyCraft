@@ -1,5 +1,5 @@
 
-# PyCraft (UnNamed)
+# PyCraft
 
 This is our attempt to create a game like minecraft in ursina engine. 
 
