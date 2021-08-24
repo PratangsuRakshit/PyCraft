@@ -14,15 +14,15 @@ This is our attempt to create a game like minecraft in ursina engine.
 - Tree Genaration
 - Breaking and placing blocks
 - Full screen mode
+- Hotbar
 
   
 ## To Do
 
 - Add villages
 - Optamizing
-- Chunk mesh (PRIORITY)<<<<<<<<<<<<<<<<------------IMPORTANT--------------------------- pls do fast
+- Chunk mesh (PRIORITY)
 - Auto genarated tree's leaves
-- Add guns(maybe ?)
 - Add daylight cycle
 - Inventory
 - Block cound
