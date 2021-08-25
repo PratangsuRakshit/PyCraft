@@ -9,7 +9,7 @@ This is our attempt to create a game like minecraft in ursina engine.
 
   **Note:** This version will also have so unique changes which are not present in minecraft.
 
-## Features
+## Done
 
 - Tree Genaration
 - Breaking and placing blocks
