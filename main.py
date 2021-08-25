@@ -2,7 +2,7 @@ from random import randint
 from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from perlin_noise import PerlinNoise
-
+from ursina.shaders import basic_lighting_shader
 
 class BG(Entity):
     def __init__(self):
@@ -14,7 +14,6 @@ class BG(Entity):
             color=color.rgba(0, 0, 0.75, 100),
         )
 
-
 class Underlay(Entity):
     def __init__(self):
         super().__init__(
@@ -24,7 +23,6 @@ class Underlay(Entity):
             position=Vec2(0, -0.465),
             color=color.rgba(0, 0, 0.75, 100),
             texture=load_texture('assets/inventory underlay.png'))
-
 
 class Inventory(Entity):
     def __init__(self, texture, position, letter):
@@ -64,8 +62,9 @@ arm_texture = load_texture('assets/arm_texture.png')
 leaf_texture = load_texture('assets/leaf_block.png')
 grass_texture = load_texture('assets/grass_block.png')
 a = Audio('assets/Minecraft Footsteps.mp3', autoplay=False, loop=True)
+seeder = randint(1, 18446744073709551616)
 block_pick = 1
-noise = PerlinNoise(octaves=1, seed=randint(1, 18446744073709551616))
+noise = PerlinNoise(octaves=1, seed = seeder )
 xpix, ypix = 100, 100
 pic = [[noise([i / xpix, j / ypix]) for j in range(xpix)] for i in range(ypix)]
 
@@ -105,6 +104,8 @@ class Voxel(Button):
             texture=texture,
             color=color.color(0, 0, random.uniform(0.9, 1)),
             scale=0.5,
+            shader=basic_lighting_shader,
+            mesh = 'triangle'
         )
 
         self.IsDestractable = True
@@ -152,7 +153,6 @@ class Hand(Entity):
     def passive(self):
         self.position = Vec2(0.7, -0.6)
 
-
 for z in range(20):
     for x in range(20):
         y = noise([x / 8, z / 8])
@@ -174,7 +174,6 @@ for z in range(20):
                 for x1 in range(3):
                     for z1 in range(3):
                         Voxel(texture=leaf_texture, position=(x + x1 - 1, y2 + tree_height + y + 1, z + z1 - 1))
-
 for z in range(20):
     for x in range(20):
         for y1 in range(3):
@@ -184,9 +183,11 @@ for z in range(20):
 
 player = FirstPersonController(jump_height=2)
 player.position = Vec3(5, 5, 5)
-Sky(texture=sky_texture, shader=False)
+Sky(texture=sky_texture)
 hand = Hand()
 pivot = Entity()
-PointLight(parent=camera, color=color.white, position=(0, 10, -1.5))
+PointLight(parent=camera, color=color.rgba(0, 0, 0.75, 100), position=(0, 10, -1.5))
 AmbientLight(color=color.rgba(100, 100, 100, 0.1))
+print("@2021Copyright @DevjangStudios")
+print('This Worlds seed was = ', seeder,)
 app.run()
