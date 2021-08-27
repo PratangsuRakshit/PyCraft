@@ -57,6 +57,8 @@ class Inventory(Entity):
 app = Ursina()
 bg = BG()
 bginv = BGinv()
+vid =Entity(model='quad', position = Vec2(0,0),scale = (1.779,1),parent = camera.ui,texture = 'devjang intro.mp4',)
+destroy(vid, delay=5)
 underlay = Underlay()
 inv1 = Inventory(load_texture('assets/grassinv1'), Vec2(-0.2, -0.465), '1')
 inv2 = Inventory(load_texture('assets/dirtinv1'), Vec2(-0.15, -0.465), '2')
