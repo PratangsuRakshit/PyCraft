@@ -4,6 +4,16 @@ from ursina.prefabs.first_person_controller import FirstPersonController
 from perlin_noise import PerlinNoise
 from ursina.shaders import basic_lighting_shader
 
+class BGinv(Entity):
+    def __init__(self):
+        super().__init__(
+            parent=camera.ui,
+            model='quad',
+            scale=(0.720, 0.430),
+            position=Vec2(0, 0),
+            color=color.rgba(0, 0, 0.75, 100),
+        )
+
 class BG(Entity):
     def __init__(self):
         super().__init__(
@@ -13,7 +23,8 @@ class BG(Entity):
             position=Vec2(0, -0.465),
             color=color.rgba(0, 0, 0.75, 100),
         )
- 
+
+
 class Underlay(Entity):
     def __init__(self):
         super().__init__(
@@ -23,6 +34,7 @@ class Underlay(Entity):
             position=Vec2(0, -0.465),
             color=color.rgba(0, 0, 0.75, 100),
             texture=load_texture('assets/inventory underlay.png'))
+
 
 class Inventory(Entity):
     def __init__(self, texture, position, letter):
@@ -44,6 +56,7 @@ class Inventory(Entity):
 
 app = Ursina()
 bg = BG()
+bginv = BGinv()
 underlay = Underlay()
 inv1 = Inventory(load_texture('assets/grassinv1'), Vec2(-0.2, -0.465), '1')
 inv2 = Inventory(load_texture('assets/dirtinv1'), Vec2(-0.15, -0.465), '2')
@@ -64,7 +77,7 @@ grass_texture = load_texture('assets/grass_block.png')
 a = Audio('assets/Minecraft Footsteps.mp3', autoplay=False, loop=True)
 seeder = randint(1, 18446744073709551616)
 block_pick = 1
-noise = PerlinNoise(octaves=1, seed = seeder )
+noise = PerlinNoise(octaves=1, seed=seeder)
 xpix, ypix = 100, 100
 pic = [[noise([i / xpix, j / ypix]) for j in range(xpix)] for i in range(ypix)]
 
@@ -87,6 +100,7 @@ def update():
     if held_keys['6']: block_pick = 6
     if held_keys['7']: block_pick = 7
 
+
 def input(key):
     if held_keys['a'] or held_keys['w'] or held_keys['s'] or held_keys['d']:
         a.play()
@@ -105,7 +119,7 @@ class Voxel(Button):
             color=color.color(0, 0, random.uniform(0.9, 1)),
             scale=0.5,
             shader=basic_lighting_shader,
-            mesh = 'triangle'
+            mesh='triangle'
         )
 
         self.IsDestractable = True
@@ -135,6 +149,10 @@ class Voxel(Button):
 
             if held_keys['f']:
                 window.fullscreen = not window.fullscreen
+            if held_keys['e']:
+                bginv.visible = not bginv.visible
+            if held_keys['tab']:
+                camera.fov = 150 if camera.fov == 100 else 100
 
 class Hand(Entity):
     def __init__(self):
@@ -152,6 +170,7 @@ class Hand(Entity):
 
     def passive(self):
         self.position = Vec2(0.7, -0.6)
+
 
 for z in range(20):
     for x in range(20):
@@ -189,5 +208,5 @@ pivot = Entity()
 PointLight(parent=camera, color=color.rgba(0, 0, 0.75, 100), position=(0, 10, -1.5))
 AmbientLight(color=color.rgba(100, 100, 100, 0.1))
 print("@2021Copyright @DevjangStudios")
-print('This Worlds seed was = ', seeder,)
+print('This Worlds seed was = ', seeder, )
 app.run()
